@@ -4,26 +4,34 @@ using UnityEngine;
 
 public class FollowPath : MonoBehaviour
 {
-    public GameObject Waypoint;
-    private int maxTime = 250;
-    public int timer;
-    void Start()
+    [SerializeField] private Transform _target;
+    [SerializeField] private Transform trueTarget;
+    [SerializeField] private Transform Spawnlocation;
+    [SerializeField] private int childTarget = 0;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _arrivalThreshold = 0.1f;
+
+    private void Start()
     {
-        timer = maxTime;
-        gameObject.transform.position = new Vector3(0, 0, 0);
+        transform.position = Spawnlocation.position;
+        Debug.Log(_target);
     }
 
-    void Update()
+    private void Update()
     {
-        timer -= 1;
-        if(timer == 0)
+        trueTarget = _target.GetChild(childTarget);
+        Vector3 heighOffsetPosition = new Vector3(trueTarget.position.x, transform.position.y, trueTarget.position.z);
+        float distance = Vector3.Distance(a: transform.position, b: heighOffsetPosition);
+
+        if (distance <= _arrivalThreshold)
         {
-            Vector3 location = Waypoint.transform.position;
-            location.x = location.x += 1;
-            location.z = location.z += 1;
-            Debug.Log(location);
-            gameObject.transform.Translate(location);
-            timer = maxTime;
+            print(message: "I have arrived");
+            childTarget += 1;
+        }
+        else
+        {
+            transform.LookAt(heighOffsetPosition);
+            transform.Translate(translation: Vector3.forward * _speed * Time.deltaTime);
         }
     }
 }

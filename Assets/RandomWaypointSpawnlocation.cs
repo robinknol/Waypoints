@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class RandomWaypointSpawnlocation : MonoBehaviour
 {
-    public float x;
     void Start()
     {
-        x = Random.Range(-10f, 10f);
+        float x = Random.Range(-15f, 15f);
+        float z = Random.Range(-5f, 5f);
 
-        gameObject.transform.Translate(x,0,x);
+        gameObject.transform.Translate(x,0,z);
     }
 }
