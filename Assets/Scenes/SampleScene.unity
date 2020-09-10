@@ -136,9 +136,10 @@ GameObject:
   - component: {fileID: 45391944}
   - component: {fileID: 45391943}
   - component: {fileID: 45391942}
+  - component: {fileID: 45391947}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45391941}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 139d20af7cb6962428e77f16d125678b, type: 3}
   m_Name: 
@@ -237,6 +238,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &45391947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45391941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309b59196342a0a4da83a1dd24635537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: []
+  Spawnlocation: {fileID: 0}
+  WaypointCounter: 0
+  _target: {fileID: 1052640114}
+  trueTarget: {fileID: 0}
+  childTarget: 0
+  _speed: 5
+  _arrivalThreshold: 0.1
 --- !u!1 &52264033
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +270,7 @@ GameObject:
   - component: {fileID: 52264035}
   m_Layer: 0
   m_Name: WayPoint F
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,7 +313,7 @@ GameObject:
   - component: {fileID: 68501605}
   m_Layer: 0
   m_Name: WayPoint G
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -335,7 +356,7 @@ GameObject:
   - component: {fileID: 349525895}
   m_Layer: 0
   m_Name: WayPoint H
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -378,7 +399,7 @@ GameObject:
   - component: {fileID: 414367420}
   m_Layer: 0
   m_Name: Waypoint A
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -421,7 +442,7 @@ GameObject:
   - component: {fileID: 671091849}
   m_Layer: 0
   m_Name: WayPoint D
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -638,7 +659,7 @@ GameObject:
   - component: {fileID: 1052640114}
   m_Layer: 0
   m_Name: Waypoints
-  m_TagString: Untagged
+  m_TagString: WaypointParent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -677,7 +698,7 @@ GameObject:
   - component: {fileID: 1070921128}
   m_Layer: 0
   m_Name: WayPoint B
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -720,7 +741,7 @@ GameObject:
   - component: {fileID: 1147673623}
   m_Layer: 0
   m_Name: WayPoint C
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -763,7 +784,7 @@ GameObject:
   - component: {fileID: 1663756898}
   m_Layer: 0
   m_Name: WayPoint E
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -805,7 +826,7 @@ GameObject:
   - component: {fileID: 1865454434}
   m_Layer: 0
   m_Name: Start
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
