@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,24 +17,32 @@ namespace Opdrachten
 
         private void Start()
         {
-            GetNextWaypoint();
+            Spawnlocation = GameObject.FindGameObjectWithTag("Respawn");
             transform.position = Spawnlocation.transform.position;
         }
 
         private void Update()
         {
+            GetNextWaypoint();
+
             Vector3 direction = new Vector3(TrueTarget.transform.position.x, transform.position.y, TrueTarget.transform.position.z);
-            float distance = Vector3.Distance(a: transform.position, b: direction);
+            float distance = Vector3.Distance(transform.position, direction);
 
             if (distance <= _arrivalThreshold)
             {
-                print(message: "I have arrived");
-                WaypointCounter += 1;
+                if (WaypointCounter == Waypoint.Length-1)
+                {
+                    print(message: "I have arrived");
+                }
+                else
+                {
+                    WaypointCounter++;
+                }
             }
             else
             {
                 transform.LookAt(direction);
-                transform.Translate(translation: Vector3.forward * _speed * Time.deltaTime);
+                transform.Translate(Vector3.forward * _speed * Time.deltaTime);
             }
         }
     }

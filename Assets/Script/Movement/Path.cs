@@ -22,15 +22,9 @@ namespace Opdrachten
         /// </summary>
         public Waypoint GetNextWaypoint()
         {
-            FindGameObjects();
+            Waypoint = GameObject.FindGameObjectsWithTag("Waypoint");
             TrueTarget = Waypoint[WaypointCounter];
             return null;
-        }
-
-        public void FindGameObjects()
-        {
-            Waypoint = GameObject.FindGameObjectsWithTag("Waypoint");
-            Spawnlocation = GameObject.FindGameObjectWithTag("Respawn");
         }
     }
 }
