@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Opdrachten
 {
@@ -14,11 +15,32 @@ namespace Opdrachten
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _arrivalThreshold = 0.1f;
+        private GameObject Player;
+        private PlayerHealth PlayerHealth;
+        
+        private UnityEvent m_MyEvent;
 
         private void Start()
         {
+            
+
+            if (m_MyEvent == null)
+            {
+                m_MyEvent = new UnityEvent();
+            }
+
+            m_MyEvent.AddListener(Ping);
             Spawnlocation = GameObject.FindGameObjectWithTag("Respawn");
             transform.position = Spawnlocation.transform.position;
+        }
+
+        void Ping()
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+            PlayerHealth = Player.GetComponent<PlayerHealth>();
+
+            PlayerHealth.TakeDamage();
+            Debug.Log("Ping");
         }
 
         private void Update()
@@ -32,7 +54,7 @@ namespace Opdrachten
             {
                 if (WaypointCounter == Waypoint.Length-1)
                 {
-                    print(message: "I have arrived");
+                    m_MyEvent.Invoke();
                 }
                 else
                 {
@@ -45,5 +67,7 @@ namespace Opdrachten
                 transform.Translate(Vector3.forward * _speed * Time.deltaTime);
             }
         }
+        
+        
     }
 }

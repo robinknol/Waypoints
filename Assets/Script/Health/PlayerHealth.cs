@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public float Health;
-    void TakeDamage()
+    public void TakeDamage()
     {
-
+        print("I have arrived");
+        //return "";
     }
 }
