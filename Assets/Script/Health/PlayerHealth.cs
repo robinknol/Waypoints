@@ -8,6 +8,5 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage()
     {
         print("I have arrived");
-        //return "";
     }
 }
