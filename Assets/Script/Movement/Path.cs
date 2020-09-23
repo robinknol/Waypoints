@@ -23,6 +23,7 @@ namespace Opdrachten
         public Waypoint GetNextWaypoint()
         {
             Waypoint = GameObject.FindGameObjectsWithTag("Waypoint");
+            //Waypoints = gameObject.GetComponentInChildren<Waypoint>();
             TrueTarget = Waypoint[WaypointCounter];
             return null;
         }
